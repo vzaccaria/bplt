@@ -1,5 +1,5 @@
 
 ## What is it
 
-Another boilerplate generator. It downloads a repo and replaces
-all occurences of key with the provided values.
+Another boilerplate generator. It downloads a git repo and replaces
+all occurences of `{{name}}` with the provided name.
