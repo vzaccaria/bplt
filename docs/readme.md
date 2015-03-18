@@ -1,6 +1,5 @@
 # {%= name %} {%= badge("fury") %}
 
-
 > {%= description %}
 
 {%= include("install-global") %}

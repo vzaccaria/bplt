@@ -1,6 +1,5 @@
 # bplt [![NPM version](https://badge.fury.io/js/bplt.svg)](http://badge.fury.io/js/bplt)
 
-
 > [object Object]
 
 ## Install globally with [npm](npmjs.org):
@@ -13,17 +12,16 @@ npm i -g bplt
 
 ```
 Usage:
-    bplt (co | checkout) REPO [ -n NAME ] [ -c CONFIG ]
-    bplt (ls | list)
-    bplt -h | --help
+    bplt ( co | checkout ) REPO -n NAME 
+    bplt ( v  | view ) REPO
+    bplt ( -h | --help )
 
 Options:
     -n, --name NAME         name of the new project
-    -c, --config CONFIG     list of comma separated, key=value pairs
 
 Commands:
-    checkout        checkout a repo
-    list            list available repos
+    checkout                checkout a repo
+    view                    print repo contents
 
 ```
 
