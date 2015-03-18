@@ -2,14 +2,22 @@ var {
   generateProject
 } = require('diy-build')
 
+var path = require('path')
+
 generateProject(_ => {
+
+  _.babel = (dir, ...deps) => {
+    var command = (_) => `./node_modules/.bin/babel ${_.source} -o ${_.product}`
+    var product = (_) => `./lib/${path.basename(_.source)}`
+    _.compileFiles(...([ command, product, dir ].concat(deps)))
+  }
+
   _.collectSeq("all", _ => {
     _.collect("build", _ => {
-      _.livescript("*.ls")
+      _.babel("src/*.js")
 
     })
-    _.cmd("((echo '#!/usr/bin/env node') && cat command.js) > cli.js", "command.js")
-    _.cmd("chmod +x ./cli.js", "cli.js")
+    _.cmd("cp ./lib/index.js ./index.js", "./lib/index.js")
   })
 
   _.collect("docs", _ => {
