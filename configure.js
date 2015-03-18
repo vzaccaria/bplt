@@ -30,8 +30,7 @@ generateProject(_ => {
 
   _.collect("test", _ => {
     _.cmd("./index.js ls")
-    _.cmd("./index.js list")
-    _.cmd("./index.js co 'http://www.vittorio.git' -n pippo")
+    _.cmd("./index.js co 'https://github.com/vzaccaria/bplt.git' -n pippo")
   })
 
   _.collect("up", _ => {
