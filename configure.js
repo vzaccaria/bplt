@@ -12,20 +12,26 @@ generateProject(_ => {
     _.compileFiles(...([ command, product, dir ].concat(deps)))
   }
 
+  _.verb = (verbfile, deps) => {
+    var command = (_) => `./node_modules/.bin/verb`
+    var product = (_) => `./readme.md`
+    _.compileFiles(...([ command, product, verbfile ].concat(deps)))
+  }
+
   _.collectSeq("all", _ => {
     _.collect("build", _ => {
       _.babel("src/*.js")
-
+      _.verb("./verbfile.js", "docs/*.md")
     })
-    _.cmd("cp ./lib/index.js ./index.js", "./lib/index.js")
-  })
-
-  _.collect("docs", _ => {
-    _.cmd("./node_modules/.bin/verb", "docs/*.md")
+    _.cmd("((echo '#!/usr/bin/env node') && cat ./lib/index.js) > index.js", "./lib/index.js")
+    _.cmd("chmod +x ./index.js")
+    _.cmd("make test")
   })
 
   _.collect("test", _ => {
-    _.cmd("./test/test.sh")
+    _.cmd("./index.js ls")
+    _.cmd("./index.js list")
+    _.cmd("./index.js co 'http://www.vittorio.git' -n pippo")
   })
 
   _.collect("up", _ => {
