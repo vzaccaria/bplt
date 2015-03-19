@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Yet another boilerplate generator",
   "main": "index.js",
+  "bin": {
+    "bplt": "./index.js"
+  },
   "scripts": {},
   "repository": {
     "type": "git",
