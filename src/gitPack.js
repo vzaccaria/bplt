@@ -13,7 +13,7 @@ var _module = () => {
       var cmd = `cd ${srcdir} ; tar -cf - . | (cd ${dstdir} ; tar -xpf -)`
       debug(cmd);
       shelljs.exec(cmd, (code, output) => {
-        if (code != 0) {
+        if (code !== 0) {
           reject("Sorry, errors happened")
         } else {
           resolve("ok")
@@ -29,7 +29,7 @@ var _module = () => {
       var cmd = `curl -fsSL ${repo} | tar xvz --strip-components 1`
       debug(cmd);
       shelljs.exec(cmd, (code, output) => {
-        if (code != 0) {
+        if (code !== 0) {
           reject("Sorry, errors happened")
         } else {
           resolve("ok")
@@ -53,7 +53,7 @@ var _module = () => {
       var cmd = `curl -fsSL ${repo}`
       debug(cmd);
       shelljs.exec(cmd, (code, output) => {
-        if (code != 0) {
+        if (code !== 0) {
           reject("Sorry, errors happened")
         } else {
           resolve("ok")

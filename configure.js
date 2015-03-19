@@ -28,9 +28,7 @@ generateProject(_ => {
     _.cmd("make test")
   })
 
-  _.collect("test", _ => {
-    _.cmd("cd checkout-tst && ../index.js co ../../bplt-module -n 'pippo'")
-  })
+
 
   _.collect("up", _ => {
     _.cmd("make clean && ./node_modules/.bin/babel configure.js | node")
