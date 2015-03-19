@@ -29,7 +29,7 @@ generateProject(_ => {
   })
 
   _.collect("test", _ => {
-    _.cmd("cd checkout-tst && ../index.js co 'https://github.com/vzaccaria/bplt.git' -n 'pippo'")
+    _.cmd("cd checkout-tst && ../index.js co ../../bplt-module -n 'pippo'")
   })
 
   _.collect("up", _ => {
